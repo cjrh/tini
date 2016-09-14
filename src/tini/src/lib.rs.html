@@ -9,8 +9,9 @@
 
     <title>lib.rs.html -- source</title>
 
-    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
-    <link rel="stylesheet" type="text/css" href="../../main.css">
+    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../../main.css">
+    
 
     
     
@@ -554,7 +555,7 @@
     <span class='doccomment'>/// let conf = Ini::new().section(&quot;empty&quot;);</span>
     <span class='doccomment'>/// assert_eq!(conf.to_buffer(), String::new());</span>
     <span class='doccomment'>/// ```</span>
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>section</span><span class='op'>&lt;</span><span class='ident'>S</span>: <span class='ident'>Into</span><span class='op'>&lt;</span><span class='ident'>String</span><span class='op'>&gt;&gt;</span>(<span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>name</span>: <span class='ident'>S</span>) <span class='op'>-&gt;</span> <span class='kw'>Self</span> {
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>section</span><span class='op'>&lt;</span><span class='ident'>S</span>: <span class='ident'>Into</span><span class='op'>&lt;</span><span class='ident'>String</span><span class='op'>&gt;&gt;</span>(<span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>name</span>: <span class='ident'>S</span>) <span class='op'>-&gt;</span> <span class='self'>Self</span> {
         <span class='self'>self</span>.<span class='ident'>last_section_name</span> <span class='op'>=</span> <span class='ident'>name</span>.<span class='ident'>into</span>();
         <span class='self'>self</span>
     }
@@ -570,7 +571,7 @@
     <span class='doccomment'>/// let value: Option&lt;u8&gt; = conf.get(&quot;test&quot;, &quot;value&quot;);</span>
     <span class='doccomment'>/// assert_eq!(value, Some(10));</span>
     <span class='doccomment'>/// ```</span>
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>item</span><span class='op'>&lt;</span><span class='ident'>S</span>: <span class='ident'>Into</span><span class='op'>&lt;</span><span class='ident'>String</span><span class='op'>&gt;&gt;</span>(<span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>name</span>: <span class='ident'>S</span>, <span class='ident'>value</span>: <span class='ident'>S</span>) <span class='op'>-&gt;</span> <span class='kw'>Self</span> {
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>item</span><span class='op'>&lt;</span><span class='ident'>S</span>: <span class='ident'>Into</span><span class='op'>&lt;</span><span class='ident'>String</span><span class='op'>&gt;&gt;</span>(<span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>name</span>: <span class='ident'>S</span>, <span class='ident'>value</span>: <span class='ident'>S</span>) <span class='op'>-&gt;</span> <span class='self'>Self</span> {
         <span class='self'>self</span>.<span class='ident'>data</span>
             .<span class='ident'>entry</span>(<span class='self'>self</span>.<span class='ident'>last_section_name</span>.<span class='ident'>clone</span>())
             .<span class='ident'>or_insert</span>(<span class='ident'>Section</span>::<span class='ident'>new</span>())
@@ -669,13 +670,13 @@
 
 <span class='attribute'>#[<span class='ident'>cfg</span>(<span class='ident'>test</span>)]</span>
 <span class='kw'>mod</span> <span class='ident'>library_test</span> {
-    <span class='kw'>use</span> <span class='ident'>super</span>::<span class='op'>*</span>;
+    <span class='kw'>use</span> <span class='kw'>super</span>::<span class='op'>*</span>;
 
     <span class='attribute'>#[<span class='ident'>test</span>]</span>
     <span class='kw'>fn</span> <span class='ident'>test_bool</span>() {
         <span class='kw'>let</span> <span class='ident'>ini</span> <span class='op'>=</span> <span class='ident'>Ini</span>::<span class='ident'>from_buffer</span>(<span class='string'>&quot;[string]\nabc = true&quot;</span>);
         <span class='kw'>let</span> <span class='ident'>abc</span>: <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='ident'>bool</span><span class='op'>&gt;</span> <span class='op'>=</span> <span class='ident'>ini</span>.<span class='ident'>get</span>(<span class='string'>&quot;string&quot;</span>, <span class='string'>&quot;abc&quot;</span>);
-        <span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>abc</span>, <span class='prelude-val'>Some</span>(<span class='boolval'>true</span>));
+        <span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>abc</span>, <span class='prelude-val'>Some</span>(<span class='bool-val'>true</span>));
     }
 
     <span class='attribute'>#[<span class='ident'>test</span>]</span>
@@ -730,7 +731,7 @@
                 <span class='kw'>return</span> <span class='ident'>Parsed</span>::<span class='ident'>Error</span>(<span class='string'>&quot;incorrect section syntax&quot;</span>.<span class='ident'>to_owned</span>());
             }
         } <span class='kw'>else</span> <span class='kw'>if</span> <span class='ident'>content</span>.<span class='ident'>contains</span>(<span class='string'>&#39;=&#39;</span>) {
-            <span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>pair</span> <span class='op'>=</span> <span class='ident'>content</span>.<span class='ident'>split</span>(<span class='string'>&#39;=&#39;</span>).<span class='ident'>map</span>(<span class='op'>|</span><span class='ident'>s</span><span class='op'>|</span> <span class='ident'>s</span>.<span class='ident'>trim</span>());
+            <span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>pair</span> <span class='op'>=</span> <span class='ident'>content</span>.<span class='ident'>splitn</span>(<span class='number'>2</span>, <span class='string'>&#39;=&#39;</span>).<span class='ident'>map</span>(<span class='op'>|</span><span class='ident'>s</span><span class='op'>|</span> <span class='ident'>s</span>.<span class='ident'>trim</span>());
             <span class='kw'>let</span> <span class='ident'>key</span> <span class='op'>=</span> <span class='ident'>pair</span>.<span class='ident'>next</span>().<span class='ident'>unwrap</span>().<span class='ident'>to_owned</span>();
             <span class='kw'>let</span> <span class='ident'>value</span> <span class='op'>=</span> <span class='ident'>pair</span>.<span class='ident'>next</span>().<span class='ident'>unwrap</span>().<span class='ident'>to_owned</span>();
             <span class='kw'>return</span> <span class='ident'>Parsed</span>::<span class='ident'>Value</span>(<span class='ident'>key</span>, <span class='ident'>value</span>);
@@ -740,13 +741,13 @@
 
     <span class='attribute'>#[<span class='ident'>cfg</span>(<span class='ident'>test</span>)]</span>
     <span class='kw'>mod</span> <span class='ident'>test</span> {
-        <span class='kw'>use</span> <span class='ident'>super</span>::<span class='op'>*</span>;
+        <span class='kw'>use</span> <span class='kw'>super</span>::<span class='op'>*</span>;
 
         <span class='attribute'>#[<span class='ident'>test</span>]</span>
         <span class='kw'>fn</span> <span class='ident'>test_comment</span>() {
             <span class='kw'>match</span> <span class='ident'>parse_line</span>(<span class='string'>&quot;;------&quot;</span>) {
-                <span class='ident'>Parsed</span>::<span class='ident'>Empty</span> <span class='op'>=&gt;</span> <span class='macro'>assert</span><span class='macro'>!</span>(<span class='boolval'>true</span>),
-                _ <span class='op'>=&gt;</span> <span class='macro'>assert</span><span class='macro'>!</span>(<span class='boolval'>false</span>),
+                <span class='ident'>Parsed</span>::<span class='ident'>Empty</span> <span class='op'>=&gt;</span> <span class='macro'>assert</span><span class='macro'>!</span>(<span class='bool-val'>true</span>),
+                _ <span class='op'>=&gt;</span> <span class='macro'>assert</span><span class='macro'>!</span>(<span class='bool-val'>false</span>),
             }
         }
 
@@ -757,7 +758,7 @@
                     <span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>name</span>, <span class='ident'>String</span>::<span class='ident'>from</span>(<span class='string'>&quot;name1&quot;</span>));
                     <span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>text</span>, <span class='ident'>String</span>::<span class='ident'>from</span>(<span class='string'>&quot;100&quot;</span>));
                 }
-                _ <span class='op'>=&gt;</span> <span class='macro'>assert</span><span class='macro'>!</span>(<span class='boolval'>false</span>),
+                _ <span class='op'>=&gt;</span> <span class='macro'>assert</span><span class='macro'>!</span>(<span class='bool-val'>false</span>),
             }
         }
 
@@ -768,7 +769,7 @@
                     <span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>name</span>, <span class='ident'>String</span>::<span class='ident'>from</span>(<span class='string'>&quot;_.,:(){}-#@&amp;*|&quot;</span>));
                     <span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>text</span>, <span class='ident'>String</span>::<span class='ident'>from</span>(<span class='string'>&quot;100&quot;</span>));
                 }
-                _ <span class='op'>=&gt;</span> <span class='macro'>assert</span><span class='macro'>!</span>(<span class='boolval'>false</span>),
+                _ <span class='op'>=&gt;</span> <span class='macro'>assert</span><span class='macro'>!</span>(<span class='bool-val'>false</span>),
             }
         }
 
@@ -779,15 +780,15 @@
                     <span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>name</span>, <span class='ident'>String</span>::<span class='ident'>from</span>(<span class='string'>&quot;text_name&quot;</span>));
                     <span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>text</span>, <span class='ident'>String</span>::<span class='ident'>from</span>(<span class='string'>&quot;hello world!&quot;</span>));
                 }
-                _ <span class='op'>=&gt;</span> <span class='macro'>assert</span><span class='macro'>!</span>(<span class='boolval'>false</span>),
+                _ <span class='op'>=&gt;</span> <span class='macro'>assert</span><span class='macro'>!</span>(<span class='bool-val'>false</span>),
             }
         }
 
         <span class='attribute'>#[<span class='ident'>test</span>]</span>
         <span class='kw'>fn</span> <span class='ident'>test_incorrect_token</span>() {
             <span class='kw'>match</span> <span class='ident'>parse_line</span>(<span class='string'>&quot;[section = 1, 2 = value&quot;</span>) {
-                <span class='ident'>Parsed</span>::<span class='ident'>Error</span>(_) <span class='op'>=&gt;</span> <span class='macro'>assert</span><span class='macro'>!</span>(<span class='boolval'>true</span>),
-                _ <span class='op'>=&gt;</span> <span class='macro'>assert</span><span class='macro'>!</span>(<span class='boolval'>false</span>),
+                <span class='ident'>Parsed</span>::<span class='ident'>Error</span>(_) <span class='op'>=&gt;</span> <span class='macro'>assert</span><span class='macro'>!</span>(<span class='bool-val'>true</span>),
+                _ <span class='op'>=&gt;</span> <span class='macro'>assert</span><span class='macro'>!</span>(<span class='bool-val'>false</span>),
             }
         }
     }
@@ -816,6 +817,8 @@
                     <dd>Move down in search results</dd>
                     <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
 
@@ -836,7 +839,7 @@
 
                 <p>
                     Search functions by type signature (e.g.
-                    <code>vec -> usize</code>)
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
                 </p>
             </div>
         </div>
@@ -845,13 +848,13 @@
     
 
     <script>
-        window.rootPath = "../../";
+        window.rootPath = "../../../";
         window.currentCrate = "tini";
         window.playgroundUrl = "";
     </script>
-    <script src="../../jquery.js"></script>
-    <script src="../../main.js"></script>
+    <script src="../../../jquery.js"></script>
+    <script src="../../../main.js"></script>
     
-    <script defer src="../../search-index.js"></script>
+    <script defer src="../../../search-index.js"></script>
 </body>
 </html>

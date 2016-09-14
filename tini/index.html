@@ -11,6 +11,7 @@
 
     <link rel="stylesheet" type="text/css" href="../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../main.css">
+    
 
     
     
@@ -43,10 +44,10 @@
 
     <section id='main' class="content mod">
 <h1 class='fqn'><span class='in-band'>Crate <a class='mod' href=''>tini</a></span><span class='out-of-band'><span id='render-detail'>
-            <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
-                [<span class='inner'>&#x2212;</span>]
-            </a>
-        </span><a id='src-0' class='srclink' href='../src/tini/lib.rs.html#1-375' title='goto source code'>[src]</a></span></h1>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a id='src-0' class='srclink' href='../src/tini/src/lib.rs.html#1-375' title='goto source code'>[src]</a></span></h1>
 <div class='docblock'><p><em><strong>tini</strong> is a <strong>t</strong>iny <strong>ini</strong>-file parsing library</em></p>
 
 <p>This small library provides basic functions to operate with ini-files.</p>
@@ -63,7 +64,8 @@
 </ul>
 
 <h1 id='examples' class='section-header'><a href='#examples'>Examples</a></h1>
-<h2 id='read-from-buffer-and-get-string-values' class='section-header'><a href='#read-from-buffer-and-get-string-values'>Read from buffer and get string values</a></h2><pre class='rust rust-example-rendered'>
+<h2 id='read-from-buffer-and-get-string-values' class='section-header'><a href='#read-from-buffer-and-get-string-values'>Read from buffer and get string values</a></h2>
+<pre class='rust rust-example-rendered'>
 <span class='kw'>use</span> <span class='ident'>tini</span>::<span class='ident'>Ini</span>;
 
 <span class='kw'>let</span> <span class='ident'>conf</span> <span class='op'>=</span> <span class='ident'>Ini</span>::<span class='ident'>from_buffer</span>([<span class='string'>&quot;[search]&quot;</span>,
@@ -76,7 +78,8 @@
 <span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>g</span>, <span class='string'>&quot;google.com&quot;</span>);
 <span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>dd</span>, <span class='string'>&quot;duckduckgo.com&quot;</span>);</pre>
 
-<h2 id='construct-in-program-and-get-vectors' class='section-header'><a href='#construct-in-program-and-get-vectors'>Construct in program and get vectors</a></h2><pre class='rust rust-example-rendered'>
+<h2 id='construct-in-program-and-get-vectors' class='section-header'><a href='#construct-in-program-and-get-vectors'>Construct in program and get vectors</a></h2>
+<pre class='rust rust-example-rendered'>
 <span class='kw'>use</span> <span class='ident'>tini</span>::<span class='ident'>Ini</span>;
 
 <span class='kw'>let</span> <span class='ident'>conf</span> <span class='op'>=</span> <span class='ident'>Ini</span>::<span class='ident'>new</span>().<span class='ident'>section</span>(<span class='string'>&quot;floats&quot;</span>)
@@ -90,15 +93,13 @@
 <span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>lost</span>, [<span class='number'>4</span>, <span class='number'>8</span>, <span class='number'>15</span>, <span class='number'>16</span>, <span class='number'>23</span>, <span class='number'>42</span>]);</pre>
 </div><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
 <table>
-                    <tr class=' module-item'>
-                        <td><a class='struct' href='struct.Ini.html'
-                               title='tini::Ini'>Ini</a></td>
-                        <td class='docblock short'>
-                             <p>Structure for INI-file data</p>
-
-                        </td>
-                    </tr>
-                </table></section>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.Ini.html'
+                                  title='tini::Ini'>Ini</a></td>
+                           <td class='docblock short'>
+                                <p>Structure for INI-file data</p>
+                           </td>
+                       </tr></table></section>
     <section id='search' class="content hidden"></section>
 
     <section class="footer"></section>
@@ -121,6 +122,8 @@
                     <dd>Move down in search results</dd>
                     <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
 
@@ -141,7 +144,7 @@
 
                 <p>
                     Search functions by type signature (e.g.
-                    <code>vec -> usize</code>)
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
                 </p>
             </div>
         </div>
