@@ -76,7 +76,7 @@
 <span class='kw'>let</span> <span class='ident'>dd</span>: <span class='ident'>String</span> <span class='op'>=</span> <span class='ident'>conf</span>.<span class='ident'>get</span>(<span class='string'>&quot;search&quot;</span>, <span class='string'>&quot;dd&quot;</span>).<span class='ident'>unwrap</span>();
 
 <span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>g</span>, <span class='string'>&quot;google.com&quot;</span>);
-<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>dd</span>, <span class='string'>&quot;duckduckgo.com&quot;</span>);</pre>
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>dd</span>, <span class='string'>&quot;duckduckgo.com&quot;</span>);<a class='test-arrow' target='_blank' href=''>Run</a></pre>
 
 <h2 id='construct-in-program-and-get-vectors' class='section-header'><a href='#construct-in-program-and-get-vectors'>Construct in program and get vectors</a></h2>
 <pre class='rust rust-example-rendered'>
@@ -90,27 +90,27 @@
 <span class='kw'>let</span> <span class='ident'>lost</span>: <span class='ident'>Vec</span><span class='op'>&lt;</span><span class='ident'>i32</span><span class='op'>&gt;</span> <span class='op'>=</span> <span class='ident'>conf</span>.<span class='ident'>get_vec</span>(<span class='string'>&quot;integers&quot;</span>, <span class='string'>&quot;lost&quot;</span>).<span class='ident'>unwrap</span>();
 
 <span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>consts</span>, [<span class='number'>3.1416</span>, <span class='number'>2.7183</span>]);
-<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>lost</span>, [<span class='number'>4</span>, <span class='number'>8</span>, <span class='number'>15</span>, <span class='number'>16</span>, <span class='number'>23</span>, <span class='number'>42</span>]);</pre>
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>lost</span>, [<span class='number'>4</span>, <span class='number'>8</span>, <span class='number'>15</span>, <span class='number'>16</span>, <span class='number'>23</span>, <span class='number'>42</span>]);<a class='test-arrow' target='_blank' href=''>Run</a></pre>
 </div><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
 <table>
                        <tr class=' module-item'>
                            <td><a class='struct' href='struct.Ini.html'
                                   title='tini::Ini'>Ini</a></td>
-                           <td class='docblock short'>
+                           <td class='docblock-short'>
                                 <p>Structure for INI-file data</p>
                            </td>
                        </tr>
                        <tr class=' module-item'>
                            <td><a class='struct' href='struct.IniIter.html'
                                   title='tini::IniIter'>IniIter</a></td>
-                           <td class='docblock short'>
+                           <td class='docblock-short'>
                                 
                            </td>
                        </tr>
                        <tr class=' module-item'>
                            <td><a class='struct' href='struct.IniIterMut.html'
                                   title='tini::IniIterMut'>IniIterMut</a></td>
-                           <td class='docblock short'>
+                           <td class='docblock-short'>
                                 
                            </td>
                        </tr></table></section>
