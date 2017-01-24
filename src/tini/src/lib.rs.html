@@ -511,6 +511,7 @@
 <span id="467">467</span>
 <span id="468">468</span>
 <span id="469">469</span>
+<span id="470">470</span>
 </pre><pre class='rust '>
 <span class='doccomment'>//! _**tini** is a **t**iny **ini**-file parsing library_</span>
 <span class='doccomment'>//!</span>
@@ -566,6 +567,7 @@
 <span class='kw'>type</span> <span class='ident'>Section</span> <span class='op'>=</span> <span class='ident'>HashMap</span><span class='op'>&lt;</span><span class='ident'>String</span>, <span class='ident'>String</span><span class='op'>&gt;</span>;
 <span class='kw'>type</span> <span class='ident'>IniParsed</span> <span class='op'>=</span> <span class='ident'>HashMap</span><span class='op'>&lt;</span><span class='ident'>String</span>, <span class='ident'>Section</span><span class='op'>&gt;</span>;
 <span class='kw'>type</span> <span class='ident'>SectionIter</span><span class='op'>&lt;</span><span class='lifetime'>&#39;a</span><span class='op'>&gt;</span> <span class='op'>=</span> <span class='ident'>hash_map</span>::<span class='ident'>Iter</span><span class='op'>&lt;</span><span class='lifetime'>&#39;a</span>, <span class='ident'>String</span>, <span class='ident'>String</span><span class='op'>&gt;</span>;
+<span class='kw'>type</span> <span class='ident'>SectionIterMut</span><span class='op'>&lt;</span><span class='lifetime'>&#39;a</span><span class='op'>&gt;</span> <span class='op'>=</span> <span class='ident'>hash_map</span>::<span class='ident'>IterMut</span><span class='op'>&lt;</span><span class='lifetime'>&#39;a</span>, <span class='ident'>String</span>, <span class='ident'>String</span><span class='op'>&gt;</span>;
 
 <span class='doccomment'>/// Structure for INI-file data</span>
 <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Debug</span>)]</span>
@@ -828,7 +830,7 @@
 }
 
 <span class='kw'>impl</span><span class='op'>&lt;</span><span class='lifetime'>&#39;a</span><span class='op'>&gt;</span> <span class='ident'>Iterator</span> <span class='kw'>for</span> <span class='ident'>IniIter</span><span class='op'>&lt;</span><span class='lifetime'>&#39;a</span><span class='op'>&gt;</span> {
-    <span class='kw'>type</span> <span class='ident'>Item</span> <span class='op'>=</span> (<span class='kw-2'>&amp;</span><span class='lifetime'>&#39;a</span> <span class='ident'>String</span>, <span class='ident'>hash_map</span>::<span class='ident'>Iter</span><span class='op'>&lt;</span><span class='lifetime'>&#39;a</span>, <span class='ident'>String</span>, <span class='ident'>String</span><span class='op'>&gt;</span>);
+    <span class='kw'>type</span> <span class='ident'>Item</span> <span class='op'>=</span> (<span class='kw-2'>&amp;</span><span class='lifetime'>&#39;a</span> <span class='ident'>String</span>, <span class='ident'>SectionIter</span><span class='op'>&lt;</span><span class='lifetime'>&#39;a</span><span class='op'>&gt;</span>);
 
     <span class='attribute'>#[<span class='ident'>inline</span>]</span>
     <span class='kw'>fn</span> <span class='ident'>next</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='self'>Self</span>::<span class='ident'>Item</span><span class='op'>&gt;</span> {
@@ -841,7 +843,7 @@
 }
 
 <span class='kw'>impl</span><span class='op'>&lt;</span><span class='lifetime'>&#39;a</span><span class='op'>&gt;</span> <span class='ident'>Iterator</span> <span class='kw'>for</span> <span class='ident'>IniIterMut</span><span class='op'>&lt;</span><span class='lifetime'>&#39;a</span><span class='op'>&gt;</span> {
-    <span class='kw'>type</span> <span class='ident'>Item</span> <span class='op'>=</span> (<span class='kw-2'>&amp;</span><span class='lifetime'>&#39;a</span> <span class='ident'>String</span>, <span class='ident'>hash_map</span>::<span class='ident'>IterMut</span><span class='op'>&lt;</span><span class='lifetime'>&#39;a</span>, <span class='ident'>String</span>, <span class='ident'>String</span><span class='op'>&gt;</span>);
+    <span class='kw'>type</span> <span class='ident'>Item</span> <span class='op'>=</span> (<span class='kw-2'>&amp;</span><span class='lifetime'>&#39;a</span> <span class='ident'>String</span>, <span class='ident'>SectionIterMut</span><span class='op'>&lt;</span><span class='lifetime'>&#39;a</span><span class='op'>&gt;</span>);
 
     <span class='attribute'>#[<span class='ident'>inline</span>]</span>
     <span class='kw'>fn</span> <span class='ident'>next</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='self'>Self</span>::<span class='ident'>Item</span><span class='op'>&gt;</span> {
