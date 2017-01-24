@@ -47,7 +47,7 @@
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a id='src-0' class='srclink' href='../src/tini/src/lib.rs.html#1-448' title='goto source code'>[src]</a></span></h1>
+               </span><a id='src-0' class='srclink' href='../src/tini/src/lib.rs.html#1-468' title='goto source code'>[src]</a></span></h1>
 <div class='docblock'><p><em><strong>tini</strong> is a <strong>t</strong>iny <strong>ini</strong>-file parsing library</em></p>
 
 <p>This small library provides basic functions to operate with ini-files.</p>
@@ -76,7 +76,7 @@
 <span class='kw'>let</span> <span class='ident'>dd</span>: <span class='ident'>String</span> <span class='op'>=</span> <span class='ident'>conf</span>.<span class='ident'>get</span>(<span class='string'>&quot;search&quot;</span>, <span class='string'>&quot;dd&quot;</span>).<span class='ident'>unwrap</span>();
 
 <span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>g</span>, <span class='string'>&quot;google.com&quot;</span>);
-<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>dd</span>, <span class='string'>&quot;duckduckgo.com&quot;</span>);<a class='test-arrow' target='_blank' href=''>Run</a></pre>
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>dd</span>, <span class='string'>&quot;duckduckgo.com&quot;</span>);</pre>
 
 <h2 id='construct-in-program-and-get-vectors' class='section-header'><a href='#construct-in-program-and-get-vectors'>Construct in program and get vectors</a></h2>
 <pre class='rust rust-example-rendered'>
@@ -90,7 +90,7 @@
 <span class='kw'>let</span> <span class='ident'>lost</span>: <span class='ident'>Vec</span><span class='op'>&lt;</span><span class='ident'>i32</span><span class='op'>&gt;</span> <span class='op'>=</span> <span class='ident'>conf</span>.<span class='ident'>get_vec</span>(<span class='string'>&quot;integers&quot;</span>, <span class='string'>&quot;lost&quot;</span>).<span class='ident'>unwrap</span>();
 
 <span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>consts</span>, [<span class='number'>3.1416</span>, <span class='number'>2.7183</span>]);
-<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>lost</span>, [<span class='number'>4</span>, <span class='number'>8</span>, <span class='number'>15</span>, <span class='number'>16</span>, <span class='number'>23</span>, <span class='number'>42</span>]);<a class='test-arrow' target='_blank' href=''>Run</a></pre>
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>lost</span>, [<span class='number'>4</span>, <span class='number'>8</span>, <span class='number'>15</span>, <span class='number'>16</span>, <span class='number'>23</span>, <span class='number'>42</span>]);</pre>
 </div><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
 <table>
                        <tr class=' module-item'>
@@ -169,11 +169,9 @@
     <script>
         window.rootPath = "../";
         window.currentCrate = "tini";
-        window.playgroundUrl = "";
     </script>
     <script src="../jquery.js"></script>
     <script src="../main.js"></script>
-    
     <script defer src="../search-index.js"></script>
 </body>
 </html>
