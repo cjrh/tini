@@ -258,6 +258,7 @@
                 addClass(search, "hidden");
                 removeClass(document.getElementById("main"), "hidden");
             }
+            defocusSearchBar();
             break;
 
         case "s":
@@ -1131,6 +1132,10 @@
                     e.preventDefault();
                 } else if (e.which === 16) { // shift
                     // Does nothing, it's just to avoid losing "focus" on the highlighted element.
+                } else if (e.which === 27) { // escape
+                    removeClass(actives[currentTab][0], 'highlighted');
+                    document.getElementsByClassName('search-input')[0].value = '';
+                    defocusSearchBar();
                 } else if (actives[currentTab].length > 0) {
                     removeClass(actives[currentTab][0], 'highlighted');
                 }
@@ -1883,4 +1888,9 @@
 // Sets the focus on the search bar at the top of the page
 function focusSearchBar() {
     document.getElementsByClassName('search-input')[0].focus();
+}
+
+// Removes the focus from the search bar
+function defocusSearchBar() {
+    document.getElementsByClassName('search-input')[0].blur();
 }
